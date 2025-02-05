@@ -5,15 +5,18 @@ export const theme = {
       desktop: "1024px",
    },
    media: {
-      mobile: (styles) => `@media (max-width: 480px) { ${styles} }`,
-      tablet: (styles) => `@media (max-width: 768px) { ${styles} }`,
-      desktop: (styles) => `@media (max-width: 1024px) { ${styles} }`,
+      sm: (styles) => `@media (max-width: 540px) { ${styles} }`,
+      md: (styles) => `@media (max-width: 720px) { ${styles} }`,
+      lg: (styles) => `@media (max-width: 960px) { ${styles} }`,
+      xl: (styles) => `@media (max-width: 1140px) { ${styles} }`,
+      xxl: (styles) => `@media (max-width: 1400px) { ${styles} }`,
    },
    fonts: {
       primary: "Helvetica, Arial, sans-serif",
    },
    colors: {
-      primary: "#ffffff",
-      secondary: "#000000",
+      light: "#ffffff",
+      medium: "#8a857f",
+      dark: "#000000",
    },
 };

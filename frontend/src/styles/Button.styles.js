@@ -2,16 +2,44 @@ import styled, { css } from "styled-components";
 
 export const Button = styled.button`
    background: transparent;
-   border-radius: 3px;
-   border: 2px solid #bf4f74;
-   color: ${({ theme }) => theme.colors.secondary};
-   margin: 0.5em 1em;
-   padding: 0.25em 1em;
+   border: 1px solid ${({ theme }) => theme.colors.dark};
+   color: ${({ theme }) => theme.colors.dark};
+   padding: 1rem 3rem;
+   font-size: 0.8rem;
+   cursor: pointer;
 
-   ${({ $secondary }) =>
-      $secondary &&
+   ${({ $dark }) =>
+      $dark &&
       css`
-         background-color: ${({ theme }) => theme.colors.secondary};
-         color: white;
+         background-color: ${({ theme }) => theme.colors.dark};
+         color: ${({ theme }) => theme.colors.light};
       `}
+`;
+
+export const StyledRadioWrapper = styled.label`
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   padding: 8px 16px;
+   border: 1px solid ${({ theme }) => theme.colors.medium};
+   font-size: 0.8rem;
+   font-weight: bold;
+   color: ${({ theme }) => theme.colors.medium};
+   background: white;
+   cursor: pointer;
+   transition: all 0.3s ease-in-out;
+
+   &:hover {
+      border: 1px solid ${({ theme }) => theme.colors.dark};
+      color: ${({ theme }) => theme.colors.dark};
+   }
+`;
+
+export const RadioButton = styled.input.attrs({ type: "radio" })`
+   display: none;
+
+   &:checked + ${StyledRadioWrapper} {
+      border: 1px solid ${({ theme }) => theme.colors.dark};
+      color: ${({ theme }) => theme.colors.dark};
+   }
 `;

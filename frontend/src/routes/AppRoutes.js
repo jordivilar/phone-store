@@ -4,16 +4,16 @@ import React, { lazy, Suspense, useState, useEffect } from "react";
 import PageWrapper from "../views/pages/PageWrapper";
 import NotFound from "../views/pages/NotFound";
 
-const LazyPhonesList = lazy(() => import("../views/pages/ProductsList"));
-const LazyPhoneDetail = lazy(() => import("../views/pages/ProductDetail"));
-const LazyShoppingCart = lazy(() => import("../views/pages/ShoppingCart"));
+const LazyProductList = lazy(() => import("../views/pages/ProductsList"));
+const LazyProductDetail = lazy(() => import("../views/pages/ProductDetail"));
+const LazyCart = lazy(() => import("../views/pages/Cart"));
 
 export const AppRoutes = [
    {
       path: "/",
       element: (
          <PageWrapper>
-            <LazyPhonesList />
+            <LazyProductList />
          </PageWrapper>
       ),
    },
@@ -21,7 +21,7 @@ export const AppRoutes = [
       path: "/detail/:id",
       element: (
          <PageWrapper>
-            <LazyPhoneDetail />
+            <LazyProductDetail />
          </PageWrapper>
       ),
    },
@@ -29,7 +29,7 @@ export const AppRoutes = [
       path: "/cart",
       element: (
          <PageWrapper>
-            <LazyShoppingCart />
+            <LazyCart />
          </PageWrapper>
       ),
    },

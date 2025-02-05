@@ -1,6 +1,6 @@
 import React from "react";
 
-import { specParagraph } from "../../../styles/Text.styles";
+import { SmText } from "../../../styles/Text.styles";
 
 export default function Specifications({ data }) {
    return (
@@ -8,50 +8,92 @@ export default function Specifications({ data }) {
          <table>
             <tbody>
                <tr>
-                  <td>BRAND</td>
                   <td>
-                     <specParagraph>{data.brand}</specParagraph>
+                     <SmText>BRAND</SmText>
+                  </td>
+                  <td>
+                     <SmText>{data.brand}</SmText>
                   </td>
                </tr>
                <tr>
-                  <td>NAME</td>
-                  <td>{data.name}</td>
+                  <td>
+                     <SmText>NAME</SmText>
+                  </td>
+                  <td>
+                     <SmText>{data.name}</SmText>
+                  </td>
                </tr>
                <tr>
-                  <td>DESCRIPTION</td>
-                  <td>{data.description}</td>
+                  <td>
+                     <SmText>DESCRIPTION</SmText>
+                  </td>
+                  <td>
+                     <SmText>{data.description}</SmText>
+                  </td>
                </tr>
                <tr>
-                  <td>SCREEN</td>
-                  <td>{data.specs.screen}</td>
+                  <td>
+                     <SmText>SCREEN</SmText>
+                  </td>
+                  <td>
+                     <SmText>{data.specs.screen}</SmText>
+                  </td>
                </tr>
                <tr>
-                  <td>RESOLUTION</td>
-                  <td>{data.specs.resolution}</td>
+                  <td>
+                     <SmText>RESOLUTION</SmText>
+                  </td>
+                  <td>
+                     <SmText>{data.specs.resolution}</SmText>
+                  </td>
                </tr>
                <tr>
-                  <td>PROCESSOR</td>
-                  <td>{data.specs.processor}</td>
+                  <td>
+                     <SmText>PROCESSOR</SmText>
+                  </td>
+                  <td>
+                     <SmText>{data.specs.processor}</SmText>
+                  </td>
                </tr>
                <tr>
-                  <td>MAIN CAMERA</td>
-                  <td>{data.specs.mainCamera}</td>
+                  <td>
+                     <SmText>MAIN CAMERA</SmText>
+                  </td>
+                  <td>
+                     <SmText>{data.specs.mainCamera}</SmText>
+                  </td>
                </tr>
                <tr>
-                  <td>SELFIE CAMERA</td>
-                  <td>{data.specs.selfieCamera}</td>
+                  <td>
+                     <SmText>SELFIE CAMERA</SmText>
+                  </td>
+                  <td>
+                     <SmText>{data.specs.selfieCamera}</SmText>
+                  </td>
                </tr>
                <tr>
-                  <td>BATTERY</td>
-                  <td>{data.specs.battery}</td>
+                  <td>
+                     <SmText>BATTERY</SmText>
+                  </td>
+                  <td>
+                     <SmText>{data.specs.battery}</SmText>
+                  </td>
                </tr>
                <tr>
-                  <td>OS</td>
-                  <td>{data.specs.os}</td>
+                  <td>
+                     <SmText>OS</SmText>
+                  </td>
+                  <td>
+                     <SmText>{data.specs.os}</SmText>
+                  </td>
                </tr>
                <tr>
-                  <td>SCREEN REFRESH RATE</td>
-                  <td>{data.specs.screenRefreshRate}</td>
+                  <td>
+                     <SmText>SCREEN REFRESH RATE</SmText>
+                  </td>
+                  <td>
+                     <SmText>{data.specs.screenRefreshRate}</SmText>
+                  </td>
                </tr>
             </tbody>
          </table>

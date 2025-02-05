@@ -6,13 +6,16 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 // import required modules
-import { Autoplay, FreeMode, Pagination, Navigation } from "swiper/modules";
+import { FreeMode, Pagination, Navigation } from "swiper/modules";
+
+import ProductCard from "../ui/ProductCard";
+import { CustomSwiper } from "../../../styles/Swipper.styles";
 
 // import { Nav, Logo, NavLinks, NavLink } from "./Navbar.styles";
 
 export default function SimilarProducts({ data }) {
    return (
-      <Swiper
+      <CustomSwiper
          breakpoints={{
             // >= 768px
             768: {
@@ -20,7 +23,7 @@ export default function SimilarProducts({ data }) {
             },
             // >= 1024px
             1024: {
-               slidesPerView: 3,
+               slidesPerView: 4,
             },
          }}
          spaceBetween={30}
@@ -35,13 +38,13 @@ export default function SimilarProducts({ data }) {
          }}
          navigation={true}
          modules={[FreeMode, Pagination, Navigation]}
-         className="home_shop"
+         className="similar-products"
       >
          {data.map((item, index) => (
             <SwiperSlide key={`slide_${index}`}>
-               <img src={item.imageUrl} alt="" style={{ maxWidth: "150px" }} />
+               <ProductCard key={index} data={item} />
             </SwiperSlide>
          ))}
-      </Swiper>
+      </CustomSwiper>
    );
 }

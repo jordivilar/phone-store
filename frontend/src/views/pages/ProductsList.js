@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { getProducts } from "../../redux/features/product/productSlice";
 import SearchBar from "../components/SearchBar";
+import ProductCard from "../components/ui/ProductCard";
 
 export default function ProductsList() {
    const dispatch = useDispatch();
@@ -24,20 +25,7 @@ export default function ProductsList() {
             )}
             {products &&
                products.length > 0 &&
-               products.slice(0, 20).map((item, index) => (
-                  <Link to={`/detail/${item.id}`}>
-                     <div className="product-card" key={index}>
-                        <div className="image">
-                           <img src={item.imageUrl} alt={item.name} />
-                        </div>
-                        <div className="">
-                           {item.brand}
-                           {item.name}
-                           {item.basePrice} EUR
-                        </div>
-                     </div>
-                  </Link>
-               ))}
+               products.slice(0, 20).map((item, index) => <ProductCard key={index} data={item} />)}
          </div>
       </>
    );
