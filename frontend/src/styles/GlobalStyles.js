@@ -275,10 +275,11 @@ tr td:first-child {
       max-width: 200px;
   }
 
-  div {
+  >div:last-child {
+    padding: 2rem 0;
     display: inline-flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
   }
 }
 
@@ -302,6 +303,14 @@ tr td:first-child {
 
 .icon-bounce {
    animation: bounce 0.6s ease; /* 0.6s es el tiempo del rebote */
+}
+
+.cart-footer,
+.cart-footer div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
 }
 
 

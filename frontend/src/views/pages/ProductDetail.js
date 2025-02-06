@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useCart } from "../../context/CartContext";
@@ -20,6 +20,7 @@ import Specifications from "../components/product_details/Specifications";
 import SimilarProducts from "../components/product_details/SimilarProducts";
 
 export default function ProductDetail() {
+   const navigate = useNavigate();
    const dispatch = useDispatch();
    const { product, isLoading } = useSelector((state) => state.product);
 
@@ -37,9 +38,36 @@ export default function ProductDetail() {
 
    const isButtonDisabled = !(selectedStorage && selectedColor);
 
+   const getProductImage = (color, storage) => {
+      const colorOption = product.colorOptions.find((option) => option.name === color);
+      if (colorOption) {
+         return colorOption.imageUrl;
+      }
+
+      return product.colorOptions[0].imageUrl;
+   };
+
+   const calculatePrice = (storage) => {
+      const storageOption = product.storageOptions.find((option) => option.capacity === storage);
+      return storageOption ? storageOption.price : product.basePrice;
+   };
+
    const handleAddToCart = () => {
-      addToCart(product);
+      const customProduct = {
+         id: `${product.id}_${selectedStorage}_${selectedColor}`,
+         image: getProductImage(selectedColor),
+         name: product.name,
+         storage: selectedStorage,
+         color: selectedColor,
+         price: calculatePrice(selectedStorage),
+      };
+
+      addToCart(customProduct);
       handleAddToCartAnimation();
+
+      setTimeout(() => {
+         navigate("/cart");
+      }, 1000);
    };
 
    const handleStorageChange = (e) => {
@@ -156,7 +184,7 @@ export default function ProductDetail() {
                         </div>
 
                         <Button
-                           $dark
+                           $black
                            disabled={isButtonDisabled}
                            onClick={handleAddToCart} /* onClick={() => addToCart(product)} */
                         >

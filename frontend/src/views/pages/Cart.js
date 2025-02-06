@@ -16,26 +16,36 @@ export default function Cart() {
                <div className="cart-items">
                   {cart.map((item) => (
                      <div key={item.id} className="cart-item">
+                        <div>{<img src={item.image} alt={item.name} />}</div>
                         <div>
-                           <img src={item.colorOptions[0].imageUrl} alt={item.name} />
-                        </div>
-                        <div>
-                           <SmText>{item.name.toUpperCase()}</SmText>
-                           <SmText>
-                              {item.storageOptions[0].capacity} | {item.colorOptions[0].name.toUpperCase()}
-                           </SmText>
-                           <SmText>{`${item.basePrice} EUR`}</SmText>
-                           <button onClick={() => removeFromCart(item.id)}>Remove</button>
+                           <div>
+                              <SmText>{item.name.toUpperCase()}</SmText>
+                              <SmText>
+                                 {item.storage} | {item.color.toUpperCase()}
+                              </SmText>
+                           </div>
+                           <div>
+                              <SmText>{`${item.price} EUR`}</SmText>
+                           </div>
+                           <div>
+                              <Button $cart onClick={() => removeFromCart(item.id)}>
+                                 Remove
+                              </Button>
+                           </div>
                         </div>
                      </div>
                   ))}
                </div>
 
-               <Link to="/">
-                  <Button>CONTINUE SHOPPING</Button>
-               </Link>
-               <SmText>TOTAL {getTotalPrice()} EUR</SmText>
-               <Button $secondary>PAY</Button>
+               <div className="cart-footer">
+                  <Link to="/">
+                     <Button>CONTINUE SHOPPING</Button>
+                  </Link>
+                  <div>
+                     <SmText>TOTAL {getTotalPrice()} EUR</SmText>
+                     <Button $black>PAY</Button>
+                  </div>
+               </div>
             </div>
          )}
       </>

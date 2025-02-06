@@ -26,7 +26,7 @@ export const CartProvider = ({ children }) => {
    };
 
    const getTotalPrice = () => {
-      return cart.reduce((total, item) => total + item.basePrice, 0);
+      return cart.reduce((total, item) => total + item.price, 0);
    };
 
    return (

@@ -20,5 +20,6 @@ export const theme = {
       light: "#f3f2f2",
       medium: "#8a857f",
       dark: "#343230",
+      danger: "#e11010",
    },
 };

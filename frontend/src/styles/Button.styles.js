@@ -8,11 +8,20 @@ export const Button = styled.button`
    font-size: 0.8rem;
    cursor: pointer;
 
-   ${({ $dark }) =>
-      $dark &&
+   ${({ $black }) =>
+      $black &&
       css`
          background-color: ${({ theme }) => theme.colors.black};
          color: ${({ theme }) => theme.colors.white};
+      `}
+
+   ${({ $cart }) =>
+      $cart &&
+      css`
+         padding: 0;
+         background-color: transparent;
+         color: ${({ theme }) => theme.colors.danger};
+         border: none;
       `}
 
    ${({ disabled }) =>

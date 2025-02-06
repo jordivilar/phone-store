@@ -1,17 +1,13 @@
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 
-// import required modules
 import { FreeMode, Pagination, Navigation } from "swiper/modules";
 
 import ProductCard from "../ui/ProductCard";
 import { CustomSwiper } from "../../../styles/Swipper.styles";
-
-// import { Nav, Logo, NavLinks, NavLink } from "./Navbar.styles";
 
 export default function SimilarProducts({ data }) {
    return (
