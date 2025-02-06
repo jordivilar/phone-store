@@ -13,5 +13,16 @@ export const CustomSwiper = styled(Swiper)`
 
    .swiper-slide {
       margin-right: 0 !important;
+      margin-bottom: 2rem;
+   }
+
+   .swiper-pagination {
+      top: auto !important;
+      bottom: 0;
+      height: 1px !important;
+   }
+
+   .swiper-pagination-progressbar-fill {
+      background-color: ${({ theme }) => theme.colors.black} !important;
    }
 `;

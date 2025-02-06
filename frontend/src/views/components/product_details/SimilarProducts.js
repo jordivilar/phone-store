@@ -27,14 +27,10 @@ export default function SimilarProducts({ data }) {
             },
          }}
          spaceBetween={30}
-         autoplay={{
-            delay: 2500,
-            disableOnInteraction: true,
-         }}
          freeMode={true}
-         loop={true}
+         loop={false}
          pagination={{
-            clickable: true,
+            type: "progressbar",
          }}
          navigation={true}
          modules={[FreeMode, Pagination, Navigation]}

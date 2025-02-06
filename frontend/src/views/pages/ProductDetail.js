@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useCart } from "../../context/CartContext";
+import useCartAnimation from "../../hooks/useCartAnimation"; // Importa el hook
 
 import { getProduct } from "../../redux/features/product/productSlice";
 
@@ -26,20 +27,30 @@ export default function ProductDetail() {
 
    const { addToCart } = useCart();
 
+   const [price, setPrice] = useState("");
+   const [selectedStorage, setSelectedStorage] = useState("");
    const [selectedColorImage, setSelectedColorImage] = useState("");
    const [selectedColor, setSelectedColor] = useState("");
    const [hoveredColor, setHoveredColor] = useState("");
 
+   const handleAddToCartAnimation = useCartAnimation(".product-image", ".cart-icon");
+
+   const isButtonDisabled = !(selectedStorage && selectedColor);
+
    const handleAddToCart = () => {
       addToCart(product);
+      handleAddToCartAnimation();
+   };
 
-      const iconElement = document.querySelector(".cart-icon");
+   const handleStorageChange = (e) => {
+      const selectedCapacity = e.target.value;
+      setSelectedStorage(selectedCapacity);
 
-      iconElement.classList.add("icon-bounce");
+      const selectedStorageOption = product.storageOptions.find((option) => option.capacity === selectedCapacity);
 
-      setTimeout(() => {
-         iconElement.classList.remove("icon-bounce");
-      }, 500);
+      if (selectedStorageOption) {
+         setPrice(selectedStorageOption.price);
+      }
    };
 
    const handleColorChange = (e) => {
@@ -65,6 +76,14 @@ export default function ProductDetail() {
       dispatch(getProduct(id));
    }, [dispatch, id]);
 
+   useEffect(() => {
+      setPrice(`From ${product.basePrice}`);
+   }, [product]);
+
+   useEffect(() => {
+      setPrice(`From ${product.basePrice}`);
+   }, [product]);
+
    return (
       <>
          <Link to="/">
@@ -84,8 +103,6 @@ export default function ProductDetail() {
             </SmText>
          </Link>
          <div className="container">
-            {isLoading && <p>Loading products...</p>}
-            {!isLoading && product.length === 0 && <p>No products available...</p>}
             {product && product.colorOptions && product.colorOptions.length > 0 && (
                <>
                   <section className="product-detail">
@@ -98,7 +115,7 @@ export default function ProductDetail() {
                      </div>
                      <div>
                         <ProductName>{product.name.toUpperCase()}</ProductName>
-                        <ProductPrice>From {product.basePrice} EUR</ProductPrice>
+                        <ProductPrice>{price} EUR</ProductPrice>
 
                         <div className="product-options">
                            <ProductOptions>STORAGE: HOW MUCH SPACE DO YOU NEED?</ProductOptions>
@@ -108,6 +125,7 @@ export default function ProductDetail() {
                                     id={`storage_option_${index}`}
                                     name="storage_options"
                                     value={item.capacity}
+                                    onChange={handleStorageChange}
                                  />
                                  <StorageRadioWrapper htmlFor={`storage_option_${index}`}>
                                     {item.capacity}
@@ -137,7 +155,11 @@ export default function ProductDetail() {
                            <XsText>{hoveredColor || selectedColor}</XsText>
                         </div>
 
-                        <Button $dark onClick={handleAddToCart} /* onClick={() => addToCart(product)} */>
+                        <Button
+                           $dark
+                           disabled={isButtonDisabled}
+                           onClick={handleAddToCart} /* onClick={() => addToCart(product)} */
+                        >
                            ADD TO CART
                         </Button>
                      </div>

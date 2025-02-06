@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import productService from "./productService";
-// import { toast } from 'react-toastify';
 
 const initialState = {
    products: [],
+   totalProducts: {},
    product: {},
    isError: false,
    isSuccess: false,
@@ -33,10 +33,10 @@ export const getProduct = createAsyncThunk("product/getProduct", async (id, thun
    }
 });
 
-// Get Fake Featured Products by id
-export const getFeaturedProducts = createAsyncThunk("product/getFeaturedProducts", async (lang, thunkAPI) => {
+// Get Products by query
+export const getProductsByQuery = createAsyncThunk("product/getProductsByQuery", async (data, thunkAPI) => {
    try {
-      return await productService.getFeaturedProducts(lang);
+      return await productService.getProductsByQuery(data);
    } catch (error) {
       const message =
          (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
@@ -58,21 +58,22 @@ const productSlice = createSlice({
    extraReducers: (builder) => {
       builder
          // Get Products
-         .addCase(getProducts.pending, (state, action) => {
+         .addCase(getProducts.pending, (state) => {
             state.isLoading = true;
          })
          .addCase(getProducts.fulfilled, (state, action) => {
             state.isLoading = false;
             state.isSuccess = true;
             state.products = action.payload;
+            state.totalProducts = action.payload.length;
          })
          .addCase(getProducts.rejected, (state, action) => {
             state.isLoading = false;
             state.isError = true;
             state.message = action.payload;
          })
-         // Get Product
-         .addCase(getProduct.pending, (state, action) => {
+         // Get Product by ID
+         .addCase(getProduct.pending, (state) => {
             state.isLoading = true;
          })
          .addCase(getProduct.fulfilled, (state, action) => {
@@ -85,16 +86,17 @@ const productSlice = createSlice({
             state.isError = true;
             state.message = action.payload;
          })
-         // Get Featured Products
-         .addCase(getFeaturedProducts.pending, (state, action) => {
+         // Get Products by query
+         .addCase(getProductsByQuery.pending, (state) => {
             state.isLoading = true;
          })
-         .addCase(getFeaturedProducts.fulfilled, (state, action) => {
+         .addCase(getProductsByQuery.fulfilled, (state, action) => {
             state.isLoading = false;
             state.isSuccess = true;
             state.products = action.payload;
+            state.totalProducts = action.payload.length;
          })
-         .addCase(getFeaturedProducts.rejected, (state, action) => {
+         .addCase(getProductsByQuery.rejected, (state, action) => {
             state.isLoading = false;
             state.isError = true;
             state.message = action.payload;

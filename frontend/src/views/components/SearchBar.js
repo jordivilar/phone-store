@@ -1,48 +1,40 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import debounce from "lodash.debounce";
 import styled from "styled-components";
 
+import { getProductsByQuery, getProducts } from "../../redux/features/product/productSlice";
+import { SmText } from "../../styles/Text.styles";
+
 export default function SearchBar() {
-   const [searchTerm, setSearchTerm] = useState("");
-   const [results, setResults] = useState([]);
+   const dispatch = useDispatch();
+   const { totalProducts } = useSelector((state) => state.product);
 
    // Función que se llama al hacer la búsqueda
-   const searchApi = debounce(async (query) => {
-      if (query) {
-         // Aquí se hace la petición a la API
-         const response = await fetch(`https://api.example.com/search?q=${query}`);
-         const data = await response.json();
-         setResults(data);
-      } else {
-         setResults([]);
-      }
-   }, 500); // 500ms de delay para ejecutar la búsqueda después de que el usuario termine de escribir
+   const debouncedSearch = useCallback(
+      debounce(async (query) => {
+         if (query) {
+            dispatch(getProductsByQuery(query));
+         } else {
+            dispatch(getProducts());
+         }
+      }, 500),
+      [dispatch]
+   );
 
-   // Manejador de cambios en el input
    const handleSearchChange = (e) => {
-      const value = e.target.value;
-      setSearchTerm(value);
-      searchApi(value); // Llamamos a la función de búsqueda con debounce
+      debouncedSearch(e.target.value);
    };
 
    return (
-      <>
+      <div>
          <SearchContainer>
-            <SearchInput
-               type="text"
-               placeholder="Search for a smartphone..."
-               value={searchTerm}
-               onChange={handleSearchChange}
-            />
+            <SearchInput type="text" placeholder="Search for a smartphone..." onChange={handleSearchChange} />
          </SearchContainer>
          <SearchResults>
-            {results.length > 0 ? (
-               results.map((result, index) => <ResultItem key={index}>{result.name}</ResultItem>)
-            ) : (
-               <p>No results found</p>
-            )}
+            <SmText>{totalProducts > 0 ? totalProducts : 0} RESULTS</SmText>
          </SearchResults>
-      </>
+      </div>
    );
 }
 
@@ -52,43 +44,28 @@ const SearchContainer = styled.div`
    align-items: center;
    justify-content: center;
    width: 100%;
-   margin: 20px auto;
+   margin: 1rem;
 `;
 
 // Estilo para el campo de entrada de texto
 const SearchInput = styled.input`
    width: 100%;
-   padding: 10px;
-   font-size: 16px;
+   padding: 0.5rem 0;
+   font-size: 1rem;
    border: none;
-   border-bottom: 1px solid #000;
+   border-bottom: 1px solid ${({ theme }) => theme.colors.dark};
    outline: none;
    transition: border-color 0.3s ease;
 
    &:focus {
-      border-color: #4caf50;
+      border-color: ${({ theme }) => theme.colors.dark};
    }
 `;
 
 // Estilo para el contenedor de resultados de búsqueda
 const SearchResults = styled.div`
-   margin-top: 20px;
-   padding: 10px;
+   padding: 0 1rem;
    width: 100%;
-   background-color: #f4f4f4;
-   border-radius: 5px;
    max-height: 300px;
    overflow-y: auto;
-`;
-
-// Estilo para cada resultado individual
-const ResultItem = styled.div`
-   padding: 10px;
-   border-bottom: 1px solid #ddd;
-   &:last-child {
-      border-bottom: none;
-   }
-   &:hover {
-      background-color: #f0f0f0;
-   }
 `;

@@ -2,8 +2,8 @@ import styled, { css } from "styled-components";
 
 export const Button = styled.button`
    background: transparent;
-   border: 1px solid ${({ theme }) => theme.colors.dark};
-   color: ${({ theme }) => theme.colors.dark};
+   border: 1px solid ${({ theme }) => theme.colors.black};
+   color: ${({ theme }) => theme.colors.black};
    padding: 1rem 3rem;
    font-size: 0.8rem;
    cursor: pointer;
@@ -11,8 +11,17 @@ export const Button = styled.button`
    ${({ $dark }) =>
       $dark &&
       css`
-         background-color: ${({ theme }) => theme.colors.dark};
-         color: ${({ theme }) => theme.colors.light};
+         background-color: ${({ theme }) => theme.colors.black};
+         color: ${({ theme }) => theme.colors.white};
+      `}
+
+   ${({ disabled }) =>
+      disabled &&
+      css`
+         background-color: ${({ theme }) => theme.colors.light};
+         color: ${({ theme }) => theme.colors.medium};
+         border: 1px solid transparent;
+         cursor: default;
       `}
 `;
 
@@ -23,13 +32,13 @@ export const StorageRadioWrapper = styled.label`
    padding: 1rem 2rem;
    border: 1px solid ${({ theme }) => theme.colors.medium};
    font-size: 0.8rem;
-   color: ${({ theme }) => theme.colors.dark};
+   color: ${({ theme }) => theme.colors.black};
    background: white;
    cursor: pointer;
 
    &:hover {
-      border: 1px solid ${({ theme }) => theme.colors.dark};
-      color: ${({ theme }) => theme.colors.dark};
+      border: 1px solid ${({ theme }) => theme.colors.black};
+      color: ${({ theme }) => theme.colors.black};
    }
 `;
 
@@ -37,8 +46,8 @@ export const StorageRadioButton = styled.input.attrs({ type: "radio" })`
    display: none;
 
    &:checked + ${StorageRadioWrapper} {
-      border: 1px solid ${({ theme }) => theme.colors.dark};
-      color: ${({ theme }) => theme.colors.dark};
+      border: 1px solid ${({ theme }) => theme.colors.black};
+      color: ${({ theme }) => theme.colors.black};
    }
 `;
 
@@ -48,13 +57,13 @@ export const ColorRadioWrapper = styled.label`
    justify-content: center;
    margin: 0 1rem 0.5rem 0;
    padding: 0.7rem;
-   border: 1px solid ${({ theme }) => theme.colors.light};
+   border: 1px solid ${({ theme }) => theme.colors.white};
    box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.medium};
    background: ${({ $bgColor }) => $bgColor || "white"};
    cursor: pointer;
 
    &:hover {
-      box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.dark};
+      box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.black};
    }
 `;
 
@@ -62,6 +71,6 @@ export const ColorRadioButton = styled.input.attrs({ type: "radio" })`
    display: none;
 
    &:checked + ${ColorRadioWrapper} {
-      box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.dark};
+      box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.black};
    }
 `;

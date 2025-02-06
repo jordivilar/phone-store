@@ -15,8 +15,10 @@ export const theme = {
       primary: "Helvetica, Arial, sans-serif",
    },
    colors: {
-      light: "#ffffff",
+      white: "#ffffff",
+      black: "#000000",
+      light: "#f3f2f2",
       medium: "#8a857f",
-      dark: "#000000",
+      dark: "#343230",
    },
 };

@@ -38,7 +38,7 @@ export const SmText = styled.p`
 
 export const XsText = styled.p`
    display: flex;
-   min-height: 0.8rem;
+   min-height: 1rem;
    font-size: 0.6rem;
    margin: 0;
 

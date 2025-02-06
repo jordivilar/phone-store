@@ -40,4 +40,29 @@ router.get("/getPhone/:id", async (req, res) => {
    }
 });
 
+router.get("/getPhonesByQuery/:query", async (req, res) => {
+   const query = req.params.query.toLowerCase();
+
+   try {
+      const response = await axios.get(`${API_URL}/products`, {
+         headers: {
+            "x-api-key": API_KEY,
+         },
+      });
+
+      if (!query) {
+         return res.status(200).json(response.data);
+      }
+
+      const filteredData = response.data.filter((product) => {
+         return product.brand.toLowerCase().includes(query) || product.name.toLowerCase().includes(query);
+      });
+
+      res.status(200).json(filteredData);
+   } catch (error) {
+      console.error(error);
+      res.status(500).json("Cannot find products");
+   }
+});
+
 module.exports = router;

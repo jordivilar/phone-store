@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
 
 import { Button } from "../../styles/Button.styles";
-import { ProductName, ProductPrice, ProductOptions, H2, SmText } from "../../styles/Text.styles";
+import { H2, SmText } from "../../styles/Text.styles";
 
 export default function Cart() {
    const { cart, removeFromCart, getTotalPrice } = useCart();

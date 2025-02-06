@@ -1,12 +1,10 @@
 import axios from "axios";
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-// export const API_URL = `${BACKEND_URL}/`;
 
-// Subscribe
 const getProducts = async () => {
    const response = await axios.get(`${BACKEND_URL}/products/getPhones`);
    console.log(response.data);
-   return response.data;
+   return response.data.slice(0, 20);
 };
 
 const getProduct = async (id) => {
@@ -15,14 +13,16 @@ const getProduct = async (id) => {
    return response.data.data;
 };
 
-const getFeaturedProducts = async (lang) => {
-   const response = await axios.get(`${BACKEND_URL}/fake_data/products_${lang}.json`);
-   return response.data.filter((product) => product.featured === true);
+const getProductsByQuery = async (query) => {
+   const response = await axios.get(`${BACKEND_URL}/products/getPhonesByQuery/${query}`);
+   console.log(response.data);
+   return response.data;
 };
 
 const authService = {
    getProducts,
    getProduct,
+   getProductsByQuery,
 };
 
 export default authService;

@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: ${({ theme }) => theme.fonts.light};
+    font-family: ${({ theme }) => theme.fonts.primary};
     font-size: 16px;
   }
 
@@ -18,13 +18,13 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
 
     &:hover {
-      color: ${({ theme }) => theme.colors.dark};
+      color: ${({ theme }) => theme.colors.black};
     }
     &:visited {
-      color: ${({ theme }) => theme.colors.dark};
+      color: ${({ theme }) => theme.colors.black};
     }
     &:focus {
-      color: ${({ theme }) => theme.colors.dark};
+      color: ${({ theme }) => theme.colors.black};
     }
   }
 
@@ -105,7 +105,7 @@ const GlobalStyle = createGlobalStyle`
   position: absolute;
   width: 30%;
   height: 100%;
-  background-color: ${({ theme }) => theme.colors.dark};
+  background-color: ${({ theme }) => theme.colors.black};
   animation: loading 1.5s infinite linear;
 }
 
@@ -123,7 +123,7 @@ const GlobalStyle = createGlobalStyle`
   .product-card {
     position: relative;
     background-color: transparent;
-    color: ${({ theme }) => theme.colors.dark};
+    color: ${({ theme }) => theme.colors.black};
     text-align: center;
     padding: 20px;
     border: 1px solid #bfbfbf;
@@ -134,8 +134,8 @@ const GlobalStyle = createGlobalStyle`
     justify-content: space-between;
 
     &:hover {
-      color: ${({ theme }) => theme.colors.light};
-      border: 1px solid ${({ theme }) => theme.colors.dark};
+      color: ${({ theme }) => theme.colors.white};
+      border: 1px solid ${({ theme }) => theme.colors.black};
     }
 
     &::after {
@@ -145,7 +145,7 @@ const GlobalStyle = createGlobalStyle`
       left: 0;
       width: 100%;
       height: 0;
-      background-color: ${({ theme }) => theme.colors.dark};
+      background-color: ${({ theme }) => theme.colors.black};
       transition: height 0.5s ease-out;
       z-index: -1;
     }
@@ -238,11 +238,11 @@ const GlobalStyle = createGlobalStyle`
   }
 
   tr {
-    border-bottom: 1px solid ${({ theme }) => theme.colors.dark};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.black};
   }
 
   tr:first-child {
-    border-top: 1px solid ${({ theme }) => theme.colors.dark};
+    border-top: 1px solid ${({ theme }) => theme.colors.black};
   }
 
 tr td {
