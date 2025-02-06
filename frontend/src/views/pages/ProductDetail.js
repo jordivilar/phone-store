@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,8 +6,14 @@ import { useCart } from "../../context/CartContext";
 
 import { getProduct } from "../../redux/features/product/productSlice";
 
-import { Button, RadioButton, StyledRadioWrapper } from "../../styles/Button.styles";
-import { ProductName, ProductPrice, ProductOptions, H2, SmText } from "../../styles/Text.styles";
+import {
+   Button,
+   ColorRadioButton,
+   ColorRadioWrapper,
+   StorageRadioButton,
+   StorageRadioWrapper,
+} from "../../styles/Button.styles";
+import { ProductName, ProductPrice, ProductOptions, H2, SmText, XsText } from "../../styles/Text.styles";
 
 import Specifications from "../components/product_details/Specifications";
 import SimilarProducts from "../components/product_details/SimilarProducts";
@@ -18,7 +24,42 @@ export default function ProductDetail() {
 
    const { id } = useParams();
 
-   const { addToCart } = useCart(); // Función para añadir al carrito
+   const { addToCart } = useCart();
+
+   const [selectedColorImage, setSelectedColorImage] = useState("");
+   const [selectedColor, setSelectedColor] = useState("");
+   const [hoveredColor, setHoveredColor] = useState("");
+
+   const handleAddToCart = () => {
+      addToCart(product);
+
+      const iconElement = document.querySelector(".cart-icon");
+
+      iconElement.classList.add("icon-bounce");
+
+      setTimeout(() => {
+         iconElement.classList.remove("icon-bounce");
+      }, 500);
+   };
+
+   const handleColorChange = (e) => {
+      const selectedColorName = e.target.value;
+      setSelectedColor(selectedColorName);
+
+      const selectedColorOption = product.colorOptions.find((colorOption) => colorOption.name === selectedColorName);
+
+      if (selectedColorOption) {
+         const imageElement = document.querySelector(".product-image");
+
+         imageElement.classList.add("fade-out");
+
+         setTimeout(() => {
+            setSelectedColorImage(selectedColorOption.imageUrl);
+
+            imageElement.classList.remove("fade-out");
+         }, 500);
+      }
+   };
 
    useEffect(() => {
       dispatch(getProduct(id));
@@ -43,16 +84,17 @@ export default function ProductDetail() {
             </SmText>
          </Link>
          <div className="container">
-            {!isLoading && product.length === 0 && (
-               <div className="col-span-12">
-                  <p className="text-center mx-auto">No products available...</p>
-               </div>
-            )}
+            {isLoading && <p>Loading products...</p>}
+            {!isLoading && product.length === 0 && <p>No products available...</p>}
             {product && product.colorOptions && product.colorOptions.length > 0 && (
                <>
                   <section className="product-detail">
                      <div>
-                        <img src={product.colorOptions[0].imageUrl} alt={product.name} />
+                        <img
+                           className="product-image"
+                           src={selectedColorImage || product.colorOptions[0].imageUrl}
+                           alt={product.name}
+                        />
                      </div>
                      <div>
                         <ProductName>{product.name.toUpperCase()}</ProductName>
@@ -62,24 +104,40 @@ export default function ProductDetail() {
                            <ProductOptions>STORAGE: HOW MUCH SPACE DO YOU NEED?</ProductOptions>
                            {product.storageOptions.map((item, index) => (
                               <label key={`capacity_${index}`}>
-                                 <RadioButton id={`option_${index}`} name="options" value={item.capacity} />
-                                 <StyledRadioWrapper htmlFor={`option_${index}`}>{item.capacity}</StyledRadioWrapper>
+                                 <StorageRadioButton
+                                    id={`storage_option_${index}`}
+                                    name="storage_options"
+                                    value={item.capacity}
+                                 />
+                                 <StorageRadioWrapper htmlFor={`storage_option_${index}`}>
+                                    {item.capacity}
+                                 </StorageRadioWrapper>
                               </label>
                            ))}
                         </div>
 
                         <div className="product-options">
                            <ProductOptions>COLOR. PICK YOUR FAVOURITE</ProductOptions>
-                           <ul>
-                              {product.colorOptions.map((item, index) => (
-                                 <li key={`color_${index}`} style={{ backgroundColor: item.hexCode }}>
-                                    {item.name}
-                                 </li>
-                              ))}
-                           </ul>
+                           {product.colorOptions.map((item, index) => (
+                              <label key={`capacity_${index}`}>
+                                 <ColorRadioButton
+                                    id={`color_option_${index}`}
+                                    name="color_options"
+                                    value={item.name}
+                                    onChange={handleColorChange}
+                                 />
+                                 <ColorRadioWrapper
+                                    htmlFor={`color_option_${index}`}
+                                    $bgColor={item.hexCode}
+                                    onMouseEnter={() => setHoveredColor(item.name)}
+                                    onMouseLeave={() => setHoveredColor("")}
+                                 />
+                              </label>
+                           ))}
+                           <XsText>{hoveredColor || selectedColor}</XsText>
                         </div>
 
-                        <Button $dark onClick={() => addToCart(product)}>
+                        <Button $dark onClick={handleAddToCart} /* onClick={() => addToCart(product)} */>
                            ADD TO CART
                         </Button>
                      </div>

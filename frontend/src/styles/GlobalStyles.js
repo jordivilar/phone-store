@@ -132,7 +132,6 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: height 0.2s ease-in;
 
     &:hover {
       color: ${({ theme }) => theme.colors.light};
@@ -206,6 +205,32 @@ const GlobalStyle = createGlobalStyle`
         margin-bottom: 2rem;
       }
     }
+
+    .product-image {
+      width: 100%;
+      height: auto;
+      opacity: 1;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .product-image.fade-out {
+      opacity: 0;
+    }
+
+    .product-image.fade-in {
+      opacity: 0;
+      animation: fadeIn 0.3s forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
   }
 
   table {
@@ -255,6 +280,28 @@ tr td:first-child {
     flex-direction: column;
     justify-content: center;
   }
+}
+
+@keyframes bounce {
+   0% {
+      transform: translateY(0); /* Inicia en su posición original */
+   }
+   30% {
+      transform: translateY(-4px); /* Se mueve hacia arriba */
+   }
+   50% {
+      transform: translateY(0); /* Vuelve a la posición original */
+   }
+   70% {
+      transform: translateY(-2px); /* Un pequeño rebote */
+   }
+   100% {
+      transform: translateY(0); /* Finaliza en su posición original */
+   }
+}
+
+.icon-bounce {
+   animation: bounce 0.6s ease; /* 0.6s es el tiempo del rebote */
 }
 
 

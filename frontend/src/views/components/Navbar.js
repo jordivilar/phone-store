@@ -12,7 +12,7 @@ export default function Navbar() {
          </Link>
 
          <Link to="/cart">
-            <img src="/assets/img/cart.jpg" alt="Cart" /> {cart.length}
+            <img className="cart-icon" src="/assets/img/cart.jpg" alt="Cart" /> {cart.length}
          </Link>
       </nav>
    );
