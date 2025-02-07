@@ -305,6 +305,10 @@ tr td:first-child {
    animation: bounce 0.6s ease; /* 0.6s es el tiempo del rebote */
 }
 
+.cart-footer {
+  margin-bottom: 1rem;
+}
+
 .cart-footer,
 .cart-footer div {
   display: flex;

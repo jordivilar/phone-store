@@ -4,6 +4,7 @@ import { useCart } from "../../context/CartContext";
 
 import { Button } from "../../styles/Button.styles";
 import { H2, SmText } from "../../styles/Text.styles";
+import { VisibilityFlexContainer } from "../../styles/Visibility.styles copy";
 
 export default function Cart() {
    const { cart, removeFromCart, getTotalPrice } = useCart();
@@ -37,12 +38,22 @@ export default function Cart() {
                   ))}
                </div>
 
+               <VisibilityFlexContainer $xs className="cart-footer">
+                  <div>
+                     <SmText $bold>TOTAL</SmText>
+                  </div>
+                  <div>
+                     <SmText $bold>{getTotalPrice()} EUR</SmText>
+                  </div>
+               </VisibilityFlexContainer>
                <div className="cart-footer">
                   <Link to="/">
                      <Button>CONTINUE SHOPPING</Button>
                   </Link>
                   <div>
-                     <SmText>TOTAL {getTotalPrice()} EUR</SmText>
+                     <VisibilityFlexContainer $lg>
+                        <SmText $bold>TOTAL {getTotalPrice()} EUR</SmText>
+                     </VisibilityFlexContainer>
                      <Button $black>PAY</Button>
                   </div>
                </div>

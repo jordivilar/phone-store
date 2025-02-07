@@ -34,6 +34,12 @@ export const SmText = styled.p`
       css`
          color: #8a857f;
       `}
+
+   ${({ $bold }) =>
+      $bold &&
+      css`
+         font-weight: 700;
+      `}
 `;
 
 export const XsText = styled.p`

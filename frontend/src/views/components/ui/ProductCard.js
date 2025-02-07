@@ -6,7 +6,7 @@ import { XsText, SmText } from "../../../styles/Text.styles";
 
 export default function ProductCard({ data }) {
    return (
-      <Link to={`/detail/${data.id}`}>
+      <Link to={`/detail/${data.id}`} aria-label={`Product: ${data.name}`}>
          <div className="product-card">
             <div className="image" style={{ backgroundImage: `url('${data.imageUrl}')` }}></div>
             <div className="">

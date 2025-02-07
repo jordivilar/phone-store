@@ -19,10 +19,10 @@ const getProductsByQuery = async (query) => {
    return response.data;
 };
 
-const authService = {
+const productService = {
    getProducts,
    getProduct,
    getProductsByQuery,
 };
 
-export default authService;
+export default productService;
