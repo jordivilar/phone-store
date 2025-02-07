@@ -79,5 +79,5 @@ npm run build
 Ejecuta los tests con:
 
 ```bash
-npm test
+npm run test
 ```

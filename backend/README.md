@@ -48,16 +48,6 @@ backend/
 
 ## Uso
 
-### Desarrollo
-
-Ejecuta el servidor en modo desarrollo con nodemon:
-
-```bash
-npm run dev
-```
-
-### Producción
-
 ```bash
 npm start
 ```
