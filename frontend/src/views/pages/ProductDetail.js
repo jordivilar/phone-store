@@ -22,7 +22,7 @@ import SimilarProducts from "../components/product_details/SimilarProducts";
 export default function ProductDetail() {
    const navigate = useNavigate();
    const dispatch = useDispatch();
-   const { product, isLoading } = useSelector((state) => state.product);
+   const { product } = useSelector((state) => state.product);
 
    const { id } = useParams();
 

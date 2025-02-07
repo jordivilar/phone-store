@@ -7,7 +7,7 @@ import ProductCard from "../components/ui/ProductCard";
 
 export default function ProductsList() {
    const dispatch = useDispatch();
-   const { products, isLoading } = useSelector((state) => state.product);
+   const { products } = useSelector((state) => state.product);
 
    useEffect(() => {
       dispatch(getProducts());
