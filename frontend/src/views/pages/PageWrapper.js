@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useState, useEffect } from "react";
+import React, { Suspense } from "react";
 
 // Components
 import Navbar from "../components/Navbar";

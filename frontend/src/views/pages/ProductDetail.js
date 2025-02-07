@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useCart } from "../../context/CartContext";
-import useCartAnimation from "../../hooks/useCartAnimation"; // Importa el hook
+import useCartAnimation from "../../hooks/useCartAnimation";
 
 import { getProduct } from "../../redux/features/product/productSlice";
 

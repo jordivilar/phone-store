@@ -1,4 +1,4 @@
-export const theme = {
+const theme = {
    breakpoints: {
       mobile: "480px",
       tablet: "768px",
@@ -23,3 +23,5 @@ export const theme = {
       danger: "#e11010",
    },
 };
+
+export default theme;

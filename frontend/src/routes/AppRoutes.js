@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useState, useEffect } from "react";
+import React, { lazy } from "react";
 
 // Pages
 import PageWrapper from "../views/pages/PageWrapper";

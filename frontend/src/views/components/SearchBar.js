@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import debounce from "lodash.debounce";
 import styled from "styled-components";
@@ -10,7 +10,6 @@ export default function SearchBar() {
    const dispatch = useDispatch();
    const { totalProducts } = useSelector((state) => state.product);
 
-   // Función que se llama al hacer la búsqueda
    const debouncedSearch = useCallback(
       debounce(async (query) => {
          if (query) {

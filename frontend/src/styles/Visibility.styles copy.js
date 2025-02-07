@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const VisibilityFlexContainer = styled.div`
-   display: flex;
+   display: none;
 
    ${({ $lg }) =>
       $lg &&

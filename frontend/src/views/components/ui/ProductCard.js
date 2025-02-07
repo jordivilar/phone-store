@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { XsText, SmText } from "../../../styles/Text.styles";
 
-// import { Nav, Logo, NavLinks, NavLink } from "./Navbar.styles";
-
 export default function ProductCard({ data }) {
    return (
       <Link to={`/detail/${data.id}`} aria-label={`Product: ${data.name}`}>
