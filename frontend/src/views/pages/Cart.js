@@ -3,7 +3,7 @@ import { useCart } from "../../context/CartContext";
 
 import { Button } from "../../styles/Button.styles";
 import { H2, SmText } from "../../styles/Text.styles";
-import { VisibilityFlexContainer } from "../../styles/Visibility.styles copy";
+import { VisibilityFlexContainer } from "../../styles/Visibility.styles";
 
 export default function Cart() {
    const { cart, removeFromCart, getTotalPrice } = useCart();

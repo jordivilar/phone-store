@@ -8,6 +8,7 @@ const LazyProductList = lazy(() => import("../views/pages/ProductsList"));
 const LazyProductDetail = lazy(() => import("../views/pages/ProductDetail"));
 const LazyCart = lazy(() => import("../views/pages/Cart"));
 
+// Routes
 export const AppRoutes = [
    {
       path: "/",

@@ -13,11 +13,9 @@ export default function SimilarProducts({ data }) {
    return (
       <CustomSwiper
          breakpoints={{
-            // >= 768px
             768: {
                slidesPerView: 2,
             },
-            // >= 1024px
             1024: {
                slidesPerView: 4,
             },

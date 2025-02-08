@@ -9,7 +9,7 @@ Este es el frontend del proyecto **prueba-técnica-móviles-2024**, construido c
 -  React
 -  React Router
 -  Context API
--  Redux (si aplica)
+-  Redux
 -  Jest (para pruebas)
 
 ## Estructura del proyecto
@@ -33,7 +33,7 @@ frontend/
 
 ## Requisitos previos
 
--  [Node.js](https://nodejs.org/) (versión 16 o superior)
+-  [Node.js](https://nodejs.org/) (versión 18)
 -  [npm](https://www.npmjs.com/) o [yarn](https://yarnpkg.com/)
 
 ## Instalación
@@ -55,6 +55,7 @@ frontend/
    cp .env.example .env
    ```
 2. Edita el archivo `.env` con los valores adecuados.
+   -  `REACT_APP_BACKEND_URL`: Define la URL base del backend, incluyendo el puerto configurado.
 
 ## Uso
 

@@ -22,9 +22,8 @@ backend/
 
 ## Requisitos previos
 
--  [Node.js](https://nodejs.org/) (versión 16 o superior)
+-  [Node.js](https://nodejs.org/) (versión 18)
 -  [npm](https://www.npmjs.com/) o [yarn](https://yarnpkg.com/)
--  Base de datos PostgreSQL u otra según configuración
 
 ## Instalación
 
@@ -45,6 +44,9 @@ backend/
    cp .env.example .env
    ```
 2. Edita el archivo `.env` con los valores adecuados.
+   -  `PORT`: Define el puerto en el que se ejecutará el servidor.
+   -  `API_URL`: Especifica la URL base de la API de móviles.
+   -  `API_KEY`: Contiene la clave de autenticación para acceder a la API.
 
 ## Uso
 

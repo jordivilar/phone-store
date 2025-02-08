@@ -108,10 +108,6 @@ export default function ProductDetail() {
       setPrice(`From ${product.basePrice}`);
    }, [product]);
 
-   useEffect(() => {
-      setPrice(`From ${product.basePrice}`);
-   }, [product]);
-
    return (
       <>
          <Link to="/">
@@ -183,11 +179,7 @@ export default function ProductDetail() {
                            <XsText>{hoveredColor || selectedColor}</XsText>
                         </div>
 
-                        <Button
-                           $black
-                           disabled={isButtonDisabled}
-                           onClick={handleAddToCart} /* onClick={() => addToCart(product)} */
-                        >
+                        <Button $black disabled={isButtonDisabled} onClick={handleAddToCart}>
                            ADD TO CART
                         </Button>
                      </div>
