@@ -32,6 +32,11 @@ export const Button = styled.button`
          border: 1px solid transparent;
          cursor: default;
       `}
+
+   ${(props) =>
+      props.theme.media.sm`
+      padding: 1rem 1.5rem;
+   `}
 `;
 
 export const StorageRadioWrapper = styled.label`
@@ -49,6 +54,11 @@ export const StorageRadioWrapper = styled.label`
       border: 1px solid ${({ theme }) => theme.colors.black};
       color: ${({ theme }) => theme.colors.black};
    }
+
+   ${(props) =>
+      props.theme.media.sm`
+      padding: 1rem 1.5rem;
+   `}
 `;
 
 export const StorageRadioButton = styled.input.attrs({ type: "radio" })`
