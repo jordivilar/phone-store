@@ -19,7 +19,7 @@ Este proyecto es una aplicación web para visualizar, buscar y gestionar un cat�
 -  Correcta accesibilidad.
 -  Uso de _linters_ y _formatters_.
 -  La consola del navegador debe estar libre de errores y advertencias (\*).
-   -  (\*) El único warning que aparece en la consola proviene de React Router y no del código propio del proyecto. Se debe a un cambio en la resolución de rutas relativas dentro de rutas con \* en la futura versión 7. Aunque actualizar a React Router v7 elimina la advertencia, esto provoca incompatibilidades con Jest, impidiendo la ejecución de pruebas.
+   -  (\*) El único warning que aparece en la consola en el entorno local, proviene de React Router y no del código propio del proyecto. Se debe a un cambio en la resolución de rutas relativas dentro de rutas con \* en la futura versión 7. Aunque actualizar a React Router v7 elimina la advertencia, esto provoca incompatibilidades con Jest, impidiendo la ejecución de pruebas.
 -  Incluir un README.
 -  Despliegue de la aplicación.
 -  Uso de variables CSS.
