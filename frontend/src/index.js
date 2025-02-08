@@ -13,16 +13,16 @@ import { CartProvider } from "./context/CartContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-   <React.StrictMode>
-      <Provider store={store}>
-         <CartProvider>
-            <ThemeProvider theme={theme}>
-               <GlobalStyles />
-               <App />
-            </ThemeProvider>
-         </CartProvider>
-      </Provider>
-   </React.StrictMode>
+  <React.StrictMode>
+    <Provider store={store}>
+      <CartProvider>
+        <ThemeProvider theme={theme}>
+          <GlobalStyles />
+          <App />
+        </ThemeProvider>
+      </CartProvider>
+    </Provider>
+  </React.StrictMode>
 );
 
 reportWebVitals();

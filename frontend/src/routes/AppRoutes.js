@@ -10,30 +10,30 @@ const LazyCart = lazy(() => import("../views/pages/Cart"));
 
 // Routes
 export const AppRoutes = [
-   {
-      path: "/",
-      element: (
-         <PageWrapper>
-            <LazyProductList />
-         </PageWrapper>
-      ),
-   },
-   {
-      path: "/detail/:id",
-      element: (
-         <PageWrapper>
-            <LazyProductDetail />
-         </PageWrapper>
-      ),
-   },
-   {
-      path: "/cart",
-      element: (
-         <PageWrapper>
-            <LazyCart />
-         </PageWrapper>
-      ),
-   },
-   // 404
-   { path: "*", element: <NotFound /> },
+  {
+    path: "/",
+    element: (
+      <PageWrapper>
+        <LazyProductList />
+      </PageWrapper>
+    ),
+  },
+  {
+    path: "/detail/:id",
+    element: (
+      <PageWrapper>
+        <LazyProductDetail />
+      </PageWrapper>
+    ),
+  },
+  {
+    path: "/cart",
+    element: (
+      <PageWrapper>
+        <LazyCart />
+      </PageWrapper>
+    ),
+  },
+  // 404
+  { path: "*", element: <NotFound /> },
 ];

@@ -6,11 +6,11 @@ Este es el frontend del proyecto **prueba-técnica-móviles-2024**, construido c
 
 ## Tecnologías utilizadas
 
--  React
--  React Router
--  Context API
--  Redux
--  Jest (para pruebas)
+- React
+- React Router
+- Context API
+- Redux
+- Jest (para pruebas)
 
 ## Estructura del proyecto
 
@@ -33,8 +33,8 @@ frontend/
 
 ## Requisitos previos
 
--  [Node.js](https://nodejs.org/) (versión 18)
--  [npm](https://www.npmjs.com/) o [yarn](https://yarnpkg.com/)
+- [Node.js](https://nodejs.org/) (versión 18)
+- [npm](https://www.npmjs.com/) o [yarn](https://yarnpkg.com/)
 
 ## Instalación
 
@@ -55,7 +55,7 @@ frontend/
    cp .env.example .env
    ```
 2. Edita el archivo `.env` con los valores adecuados.
-   -  `REACT_APP_BACKEND_URL`: Define la URL base del backend, incluyendo el puerto configurado.
+   - `REACT_APP_BACKEND_URL`: Define la URL base del backend, incluyendo el puerto configurado.
 
 ## Uso
 
@@ -81,4 +81,18 @@ Ejecuta los tests con:
 
 ```bash
 npm run test
+```
+
+## Formato
+
+Formatea todos los archivos de src/.
+
+```bash
+npm run format
+```
+
+Revisa si hay archivos mal formateados sin cambiarlos.
+
+```bash
+npm run format:check
 ```

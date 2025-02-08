@@ -56,17 +56,17 @@ const GlobalStyle = createGlobalStyle`
     max-width: 1140px;
 
     ${(props) =>
-       props.theme.media.lg(`
+      props.theme.media.lg(`
       max-width: 1140px;
     `)}
 
     ${(props) =>
-       props.theme.media.md(`
+      props.theme.media.md(`
       max-width: 720px;
     `)}
 
     ${(props) =>
-       props.theme.media.sm(`
+      props.theme.media.sm(`
       max-width: 100%;
     `)}
   }
@@ -78,17 +78,17 @@ const GlobalStyle = createGlobalStyle`
     padding: 16px;
 
     ${(props) =>
-       props.theme.media.xxl(`
+      props.theme.media.xxl(`
       grid-template-columns: repeat(3, 1fr);
     `)}
 
     ${(props) =>
-       props.theme.media.lg(`
+      props.theme.media.lg(`
       grid-template-columns: repeat(2, 1fr);
     `)}
 
     ${(props) =>
-       props.theme.media.sm(`
+      props.theme.media.sm(`
       grid-template-columns: repeat(1, 1fr);
     `)}
   }
@@ -176,18 +176,18 @@ const GlobalStyle = createGlobalStyle`
     padding: 16px;
 
     ${(props) =>
-       props.theme.media.lg(`
+      props.theme.media.lg(`
       gap: 6rem;
     `)}
 
     ${(props) =>
-       props.theme.media.md(`
+      props.theme.media.md(`
       grid-template-columns: repeat(2, 1fr);
       gap: 1rem;
     `)}
 
     ${(props) =>
-       props.theme.media.sm(`
+      props.theme.media.sm(`
       grid-template-columns: repeat(1, 1fr);
       gap: 2rem;
     `)}
@@ -250,17 +250,17 @@ const GlobalStyle = createGlobalStyle`
     width: 25%;
 
     ${(props) =>
-       props.theme.media.lg(`
+      props.theme.media.lg(`
       width: 25%;
     `)}
 
     ${(props) =>
-       props.theme.media.md(`
+      props.theme.media.md(`
       width: 30%;
     `)}
 
     ${(props) =>
-       props.theme.media.sm(`
+      props.theme.media.sm(`
       width: 50%;
     `)}
   }
