@@ -1,36 +1,36 @@
-# Catálogo de Teléfonos Móviles
+# Mobile Phone Catalog
 
-Este proyecto es una aplicación web para visualizar, buscar y gestionar un catálogo de teléfonos móviles. Cuenta con un frontend desarrollado con React.js, React Router, Context API y Redux, junto con Jest para pruebas. El backend, basado en Node.js y Express, se encarga de gestionar las solicitudes a la API y de ocultar la clave x-api-key para evitar exponerla en el frontend.
+This project is a web application for viewing, searching, and managing a catalog of mobile phones. It features a frontend developed with React.js, React Router, Context API, and Redux, along with Jest for testing. The backend, built with Node.js and Express, handles API requests and hides the x-api-key to prevent exposure in the frontend.
 
 ## Demo
 
 [https://mobiles-fe.vercel.app/](https://mobiles-fe.vercel.app/)
 
-## Características
+## Features
 
--  Visualización de una lista de teléfonos móviles.
--  Búsqueda de dispositivos por nombre y marca.
--  Gestión de un carrito de compras para añadir dispositivos.
+-  Display a list of mobile phones.
+-  Search for devices by name and brand.
+-  Manage a shopping cart to add devices.
 
-## Requisitos
+## Requirements
 
--  Implementación de pruebas (testing).
--  La aplicación debe ser responsive.
--  Correcta accesibilidad.
--  Uso de _linters_ y _formatters_.
--  La consola del navegador debe estar libre de errores y advertencias (\*).
-   -  (\*) El único warning que aparece en la consola en el entorno local, proviene de React Router y no del código propio del proyecto. Se debe a un cambio en la resolución de rutas relativas dentro de rutas con \* en la futura versión 7. Aunque actualizar a React Router v7 elimina la advertencia, esto provoca incompatibilidades con Jest, impidiendo la ejecución de pruebas.
--  Incluir un README.
--  Despliegue de la aplicación.
--  Uso de variables CSS.
+-  Implementation of tests (testing).
+-  The application must be responsive.
+-  Proper accessibility.
+-  Use of _linters_ and _formatters_.
+-  The browser console must be free of errors and warnings (\*).
+   -  (\*) The only warning appearing in the console in the local environment comes from React Router and not from the project's own code. It is due to a change in relative route resolution within wildcard routes (`*`) in the upcoming version 7. Although upgrading to React Router v7 removes the warning, it causes incompatibilities with Jest, preventing tests from running.
+-  Include a README.
+-  Deployment of the application.
+-  Use of CSS variables.
 
-## Estructura del Proyecto
+## Project Structure
 
--  `/frontend`: Contiene el código fuente del frontend de la aplicación.
--  `/backend`: Contiene el código fuente del backend de la aplicación.
+-  `/frontend`: Contains the source code for the application's frontend.
+-  `/backend`: Contains the source code for the application's backend.
 
-Para más detalles sobre cada componente, consulta los archivos README en las respectivas carpetas.
+For more details on each component, refer to the README files in their respective folders.
 
-## Instalación y Ejecución
+## Installation and Execution
 
-Para instrucciones detalladas sobre cómo instalar y ejecutar el proyecto, por favor, revisa los archivos README en las carpetas `frontend` y `backend`.
+For detailed instructions on how to install and run the project, please check the README files in the `frontend` and `backend` folders.
