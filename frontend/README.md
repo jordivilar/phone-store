@@ -10,7 +10,7 @@ This is the frontend of the **phone-store** project, built with React.
 - React Router
 - Context API
 - Redux
-- Jest (para pruebas)
+- Jest (for testing)
 
 ## Project Structure
 
@@ -38,12 +38,13 @@ frontend/
 
 ## Installation
 
-1. Clone the repository and navigate to the frontend folder:
+1. Clone the repository (if cloned before):
    ```bash
    git clone https://github.com/jordivilar/phone-store.git
    ```
 2. Install dependencies:
    ```bash
+   cd frontend/
    npm install
    ```
 

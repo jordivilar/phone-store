@@ -1,15 +1,15 @@
 # Backend
 
-## Descripción
+## Description
 
-Este es el backend del proyecto **prueba-técnica-móviles-2024**, construido con Node.js y Express. Se encarga de manejar las solicitudes API, la lógica de negocio y las solicitudes a la API de productos.
+This is the backend of the **phone-store** project, built with Node.js and Express. It handles API requests, business logic, and requests to the product API.
 
-## Tecnologías utilizadas
+## Technologies Used
 
 -  Node.js
 -  Express
 
-## Estructura del proyecto
+## Project Structure
 
 ```
 backend/
@@ -20,33 +20,33 @@ backend/
 │── server.js
 ```
 
-## Requisitos previos
+## Prerequisites
 
--  [Node.js](https://nodejs.org/) (versión 18)
--  [npm](https://www.npmjs.com/) o [yarn](https://yarnpkg.com/)
+-  [Node.js](https://nodejs.org/) (version 18)
+-  [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 
-## Instalación
+## Installation
 
-1. Clona el repositorio:
+1. Clone the repository (if cloned before):
    ```bash
-   git clone https://github.com/jordivilar/prueba-tecnica-moviles-2024.git
-   cd prueba-tecnica-moviles-2024/backend
+   git clone https://github.com/jordivilar/phone-store.git
    ```
-2. Instala las dependencias:
+2. Install dependencies:
    ```bash
+   cd backend/
    npm install
    ```
 
-## Configuración
+## Configuration
 
-1. Copia el archivo de ejemplo de variables de entorno y renómbralo a `.env`:
+1. Copy the environment variables example file and rename it to `.env`:
    ```bash
    cp .env.example .env
    ```
-2. Edita el archivo `.env` con los valores adecuados.
-   -  `PORT`: Define el puerto en el que se ejecutará el servidor.
-   -  `API_URL`: Especifica la URL base de la API de móviles.
-   -  `API_KEY`: Contiene la clave de autenticación para acceder a la API.
+2. Edit the `.env` file with the appropriate values.
+   -  `PORT`: Defines the port where the server will run.
+   -  `API_URL`: Specifies the base URL of the mobile API.
+   -  `API_KEY`: Contains the authentication key to access the API.
 
 ## Uso
 
