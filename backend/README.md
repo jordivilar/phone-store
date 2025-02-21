@@ -48,7 +48,7 @@ backend/
    -  `API_URL`: Specifies the base URL of the mobile API.
    -  `API_KEY`: Contains the authentication key to access the API.
 
-## Uso
+## Usage
 
 ```bash
 npm start
