@@ -2,7 +2,7 @@
 
 ## Description
 
-This is the backend of the **phone-store** project, built with Node.js and Express. It handles API requests, business logic, and requests to the product API.
+This is the backend of the **phone-store** project, built with Node.js and Express. It handles API requests, business logic, and requests to the product API. It has been primarily built to prevent exposing the API_KEY in the frontend.
 
 ## Technologies Used
 
