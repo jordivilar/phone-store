@@ -1,10 +1,10 @@
 # Frontend
 
-## Descripción
+## Description
 
-Este es el frontend del proyecto **prueba-técnica-móviles-2024**, construido con React.
+This is the frontend of the **phone-store** project, built with React.
 
-## Tecnologías utilizadas
+## Technologies Used
 
 - React
 - React Router
@@ -12,7 +12,7 @@ Este es el frontend del proyecto **prueba-técnica-móviles-2024**, construido c
 - Redux
 - Jest (para pruebas)
 
-## Estructura del proyecto
+## Project Structure
 
 ```
 frontend/
@@ -31,67 +31,66 @@ frontend/
 │── index.js
 ```
 
-## Requisitos previos
+## Prerequisites
 
-- [Node.js](https://nodejs.org/) (versión 18)
-- [npm](https://www.npmjs.com/) o [yarn](https://yarnpkg.com/)
+- [Node.js](https://nodejs.org/) (version 18)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 
-## Instalación
+## Installation
 
-1. Clona el repositorio y entra en la carpeta del frontend:
+1. Clone the repository and navigate to the frontend folder:
    ```bash
-   git clone https://github.com/jordivilar/prueba-tecnica-moviles-2024.git
-   cd prueba-tecnica-moviles-2024/frontend
+   git clone https://github.com/jordivilar/phone-store.git
    ```
-2. Instala las dependencias:
+2. Install dependencies:
    ```bash
    npm install
    ```
 
-## Configuración
+## Configuration
 
-1. Copia el archivo de ejemplo de variables de entorno y renómbralo a `.env`:
+1. Copy the environment variables example file and rename it to `.env`:
    ```bash
    cp .env.example .env
    ```
-2. Edita el archivo `.env` con los valores adecuados.
-   - `REACT_APP_BACKEND_URL`: Define la URL base del backend, incluyendo el puerto configurado.
+2. Edit the `.env` file with the appropriate values.
+   - `REACT_APP_BACKEND_URL`: Define the backend base URL, including the configured port.
 
-## Uso
+## Usage
 
-### Desarrollo
+### Development
 
-Ejecuta la aplicación en modo desarrollo:
+Run the application in development mode:
 
 ```bash
 npm start
 ```
 
-### Producción
+### Production
 
-Construye la aplicación para producción:
+Build the application for production:
 
 ```bash
 npm run build
 ```
 
-## Pruebas
+## Testing
 
-Ejecuta los tests con:
+Run the tests with:
 
 ```bash
 npm run test
 ```
 
-## Formato
+## Formatting
 
-Formatea todos los archivos de src/.
+Format all files inside src/.
 
 ```bash
 npm run format
 ```
 
-Revisa si hay archivos mal formateados sin cambiarlos.
+Check for improperly formatted files without making changes:
 
 ```bash
 npm run format:check
